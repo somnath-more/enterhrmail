@@ -1,0 +1,2 @@
+<!-- Required Library -->
+npm install mysql2 sequelize sequelize-typescript jsonwebtoken bcryptjs passport passport-jwt nodemailer handlebars helmet cors express-mongo-sanitize express-validator validator --save-dev nodemon jest @types/jest ts-jest

@@ -1,0 +1,36 @@
+# WRITE CI/CD WORKFLOW FOR CLIENT HERE WHEN THERE IS MAIN BRANCH CODE WILL DEPLOY  for NODE JS EXPRESS SERVER
+name: Server CI/CD
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+    
+        - name: Set up Node.js
+          uses: actions/setup-node@v4
+          with:
+           node-version: 'latest'  # Specify the Node.js version
+    
+        - name: Install dependencies
+          run: npm install
+    
+        - name: Run tests
+          run: npm test
+    
+        - name: Build the project
+          run: npm run build
+    
+        - name: Deploy to production server
+          run: |
+            echo "Deploying to production server..."
+            # Add your deployment commands here, e.g., rsync, scp, etc.
+            # Example:
+            # rsync -avz --delete dist/ user@server:/path/to/deploy/
