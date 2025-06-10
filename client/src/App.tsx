@@ -1,20 +1,33 @@
-import React from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import React from 'react'
+import { Route, Routes } from 'react-router'
+import SignIn from './components/organisms/SignIn'
+import Dashboard from './pages/Dashboard';
+import './App.css'
+import SignUp from './components/organisms/SignUp';
 
-const ErrorFallback = ({ error }: { error: Error }) => (
-  <div role="alert">
-    <p>Something went wrong:</p>
-    <pre style={{ color: 'red' }}>{error.message}</pre>
-  </div>
-);
 
-const App = () => (
-  <ErrorBoundary FallbackComponent={ErrorFallback}>
+function App() {
+  // const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+
+
+
+
+  return (
     <>
-      <h1>Welcome to the Enter HR Dashboard</h1>
-    
-    </>
-  </ErrorBoundary>
-);
+      {/* <p>Hello Personal Profile</p> */}
+      {/* routes for sign in and dashboard */}
+      <Routes>
+          <Route path="/" element={<SignIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
-export default App;
+      </Routes>
+ 
+    </>
+  )
+}
+
+export default App
+
+
