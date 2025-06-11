@@ -1,12 +1,34 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { FaHome, FaEnvelope, FaCog, FaSignOutAlt } from "react-icons/fa";
-
+export const SIDEBARDATA = [
+  {
+    title: "Dashboard",
+    icon: <FaHome />,
+    path: "/dashboard",
+  },
+  // {
+  //   title: "New Template",
+  //   icon: <FaEnvelope />,
+  //   path: "/new-template",
+  // },
+  {
+    title: "Send Profile",
+    icon: <FaCog />,
+    path: "/send-to-hr-mail",
+  },
+  // view sent mails
+  {
+    title: "View Sent Mails",
+    icon: <FaEnvelope />,
+    path: "/view-sent-mails",
+  },
+]
 const Sidebar = () => {
   const navigate = useNavigate();
 
   const menuItemClass =
-    "flex items-center p-4 hover:bg-gray-700 cursor-pointer transition duration-300";
+    "flex items-center p-4 hover:bg-gray-700 cursor-pointer transition duration-300 w-full";
   const iconClass = "mr-3 text-xl";
 
   return (
@@ -18,19 +40,17 @@ const Sidebar = () => {
         </div>
         <nav className="mt-8">
           <ul>
-            <li className={menuItemClass}>
-              <FaHome className={iconClass} />
-              <a href="#">Dashboard</a>
-            </li>
-            <li className={menuItemClass}>
-              <FaEnvelope className={iconClass} />
-              <a href="#">New Template</a>
-            </li>
-            <li className={menuItemClass}>
-              <FaCog className={iconClass} />
-              <a href="#">Send Profile</a>
-            </li>
-            {/* Add more tabs as needed */}
+            {SIDEBARDATA.map((item, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => navigate(item.path)}
+                  className={menuItemClass}
+                >
+                  {item.icon && <span className={iconClass}>{item.icon}</span>}
+                  {item.title}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="p-4 mt-auto">

@@ -2,11 +2,19 @@ import React from 'react';
 import { FiUploadCloud } from 'react-icons/fi';
 import { FaLinkedin } from 'react-icons/fa';
 
-const NewTemplate = () => {
+interface NewTemplateProps {
+  closeModal?: () => void,
+  selectedTemplate ?: any
+}
+const NewTemplate: React.FC<NewTemplateProps> = ({closeModal}) => {
+  const defaultPreviewTemplateData = {};
+  const [previewTemplateData, setPreviewTemplateData] = React.useState(defaultPreviewTemplateData);
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6">
-        {/* Header */}
+//  add 80vh height tailwind class and if max then scroll can you tell me class
+
+
+      <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 overflow-hidden h-auto">
+      
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-4">
             <img
@@ -56,20 +64,28 @@ const NewTemplate = () => {
           <div className="flex justify-between mt-6">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition"
             >
               Save Template
             </button>
             <button
               type="button"
-              className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition"
+              className="bg-orange-500 text-white px-3 py-2 rounded-lg hover:bg-orange-600 transition"
             >
               Live Preview Mail
+            </button>
+            {/* CLOSE */}
+            <button
+              onClick={closeModal}
+              type="button"
+              className="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition"
+            >
+              Close
             </button>
           </div>
         </form>
       </div>
-    </div>
+   
   );
 };
 

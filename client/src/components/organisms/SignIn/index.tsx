@@ -1,8 +1,11 @@
 import { Icon } from "@mui/material";
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Google from "@mui/icons-material/Google";
+import GoogleLogo from "../../../../src/assets/googleLogo.svg";
+import GithubLogo from "../../../../src/assets/githubLogo.svg";
+// import Google from "@mui/icons-material/Google";
 import { useNavigate } from "react-router";
+import IconComponent from "../../atoms/Icon";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -25,7 +28,7 @@ const SignIn = () => {
           </h1>
         </div>
         <form className="mt-8 space-y-6">
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md -space-y-px">
             <div>
               <label
                 htmlFor="email"
@@ -37,7 +40,7 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -51,7 +54,7 @@ const SignIn = () => {
               <input
                 type="password"
                 id="password"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -73,9 +76,9 @@ const SignIn = () => {
               </label>
             </div>
 
-            <div className="text-sm">
+            <div className="text-sm" >
               <a
-                href="#"
+              
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Forgot your password?
@@ -83,44 +86,39 @@ const SignIn = () => {
             </div>
           </div>
 
-          <div>
+         
             <button
               onClick={handleSignIn}
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border-rounded text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Sign In
             </button>
-          </div>
+       
 
-          <div>
+    
             <button
               onClick={handleSignInWithGoogle}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
             >
-              <Icon className="mr-2">
-                <Google />
-              </Icon>
+              <IconComponent src={GoogleLogo} />
               Sign In with Google
             </button>
-          </div>
-          <div>
+         
+          
             <button
               onClick={handleSignInWithGithub}
-              className="group relative w-full flex justify-center align-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
             >
-              <Icon className="mr-2">
-                <GitHubIcon />
-              </Icon>
+              <IconComponent src={GithubLogo} />
               Sign In with Github
             </button>
-          </div>
+          
           <div>
-            <p className="text-center text-gray-500">
+            <p className="text-center text-sm text-gray-500">
               Don't have an account?{" "}
               <a
                 onClick={handleSignUp}
-                href="#"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Sign up

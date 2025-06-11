@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaPaperPlane } from "react-icons/fa";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
-const SendToHrMail = () => {
+const SentToHrMailBody = () => {
+  const navigate = useNavigate();
   const [emails, setEmails] = useState<string[]>([]);
-  const [inputEmail, setInputEmail] = useState('');
+  const [inputEmail, setInputEmail] = useState("");
   const [invalidEmails, setInvalidEmails] = useState<string[]>([]);
-  const [selectedTemplate, setSelectedTemplate] = useState('');
+  const [selectedTemplate, setSelectedTemplate] = useState("");
 
   const savedContacts = [
-    'hr.ravi@company.com',
-    'hiring@startup.in',
-    'talent@bigfirm.com'
+    "hr.ravi@company.com",
+    "hiring@startup.in",
+    "talent@bigfirm.com",
   ];
 
   const validateEmail = (email: string) => {
@@ -19,10 +22,10 @@ const SendToHrMail = () => {
   };
 
   const handleAddEmail = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' || e.key === ',') {
+    if (e.key === "Enter" || e.key === ",") {
       e.preventDefault();
       const trimmedEmail = inputEmail.trim();
-      if (trimmedEmail === '') return;
+      if (trimmedEmail === "") return;
 
       if (validateEmail(trimmedEmail)) {
         if (!emails.includes(trimmedEmail)) {
@@ -31,25 +34,58 @@ const SendToHrMail = () => {
       } else {
         setInvalidEmails([...invalidEmails, trimmedEmail]);
       }
-      setInputEmail('');
+      setInputEmail("");
     }
   };
 
   const handleSelectSaved = (email: string) => {
     if (!emails.includes(email)) setEmails([...emails, email]);
   };
+  const handleSentMailToHR = () => {
+    console.log("Emails sent to HRs:", emails);
+    console.log("Selected template:", selectedTemplate);
+    // API CALL
+    // Show success message using sweetalert
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Email sent successfully",
+    });
+    navigate("/dashboard");
+
+
+    // Reset the form
+    setEmails([]);
+    setInputEmail("");
+    setInvalidEmails([]);
+  };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow">
+    <div className="max-w-xl mx-auto p-6 mt-5 bg-white rounded-2xl shadow">
       <h2 className="text-xl font-semibold mb-1">Send to HRs</h2>
       <p className="text-sm text-gray-500 mb-4">
-        Enter email addresses of HR contacts. You can add multiple, and save for future use.
+        Enter email addresses of HR contacts. You can add multiple, and save for
+        future use.
       </p>
 
       {/* Email Input Chips */}
       <div className="flex flex-wrap gap-2 items-center border border-gray-300 rounded px-3 py-2 focus-within:ring-2 ring-blue-400 mb-1">
         {emails.map((email, idx) => (
-          <span key={idx} className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
+          <span
+            key={idx}
+            className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
+          >
             {email}
           </span>
         ))}
@@ -69,14 +105,18 @@ const SendToHrMail = () => {
           <span className="text-green-600">🟢 Valid</span>
         ) : (
           <>
-            <span className="text-red-600">⚠️ Invalid: {invalidEmails.join(', ')}</span>
+            <span className="text-red-600">
+              ⚠️ Invalid: {invalidEmails.join(", ")}
+            </span>
           </>
         )}
       </div>
 
       {/* Template Dropdown */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Select Template</label>
+        <label className="block text-sm font-medium mb-1">
+          Select Template
+        </label>
         <select
           className="w-full border border-gray-300 px-3 py-2 rounded text-sm"
           value={selectedTemplate}
@@ -108,7 +148,7 @@ const SendToHrMail = () => {
       {/* Submit Button */}
       <button
         className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg flex items-center justify-center gap-2 text-sm font-medium"
-        onClick={() => alert('Sending Profile Email...')}
+        onClick={handleSentMailToHR}
       >
         <FaPaperPlane />
         Send Profile Email
@@ -117,4 +157,4 @@ const SendToHrMail = () => {
   );
 };
 
-export default SendToHrMail;
+export default SentToHrMailBody;

@@ -4,6 +4,8 @@ import SignIn from './components/organisms/SignIn'
 import Dashboard from './pages/Dashboard';
 import './App.css'
 import SignUp from './components/organisms/SignUp';
+import SentToHrMail from './pages/SentToHrMail';
+import ViewSentMail from './pages/ViewSentMail';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/send-to-hr-mail" element={<SentToHrMail />} />
+          <Route path="/view-sent-mails" element={<ViewSentMail />} />
 
       </Routes>
  

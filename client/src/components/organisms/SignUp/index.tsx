@@ -1,17 +1,21 @@
 import { Icon } from "@mui/material";
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import Google from "@mui/icons-material/Google";
 import { useNavigate } from "react-router";
-
+import { GoogleButton } from "../../../utils";
+import IconComponent from "../../atoms/Icon";
+import GithubLogo from "../../../../src/assets/githubLogo.svg";
+import GoogleLogo from "../../../../src/assets/googleLogo.svg";
 const SignUp = () => {
-    const navigate = useNavigate();
-  const  handleSignUp = () => {
+  const navigate = useNavigate();
+  const handleSignUp = () => {
     navigate("/");
   };
   const handleSignIn = () => {
     navigate("/");
-  }
+  };
+  const handleSignInWithGithub = () => {};
+  const handleSignInWithGoogle = () => {};
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
@@ -21,7 +25,7 @@ const SignUp = () => {
           </h1>
         </div>
         <form className="mt-8 space-y-6">
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="rounded-md -space-y-px">
             <div>
               <label
                 htmlFor="email"
@@ -33,7 +37,7 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -47,7 +51,7 @@ const SignUp = () => {
               <input
                 type="password"
                 id="password"
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -61,13 +65,19 @@ const SignUp = () => {
                 type="checkbox"
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
               />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+              <label
+                htmlFor="remember-me"
+                className="ml-2 block text-sm text-gray-900"
+              >
                 Remember me
               </label>
             </div>
 
             <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <a
+                href="#"
+                className="font-medium text-indigo-600 hover:text-indigo-500"
+              >
                 Forgot your password?
               </a>
             </div>
@@ -75,7 +85,7 @@ const SignUp = () => {
 
           <div>
             <button
-              onClick={handleSignUp}    
+              onClick={handleSignUp}
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
@@ -83,27 +93,28 @@ const SignUp = () => {
             </button>
           </div>
 
-          <div>
-            <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-              <Icon className="mr-2">
-                <Google />
-              </Icon>
-              Sign up with Google
-            </button>
-          </div>
-          <div>
-            <button className="group relative w-full flex justify-center align-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              <Icon className="mr-2">
-                <GitHubIcon />
-              </Icon>
-              Sign up with Github
-            </button>
-          </div>
+          <button
+            onClick={handleSignInWithGoogle}
+            className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
+          >
+            <IconComponent src={GoogleLogo} />
+            Sign In with Google
+          </button>
+          <button
+            onClick={handleSignInWithGithub}
+           className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
+            >
+            <IconComponent src={GithubLogo} />
+            Sign In with Github
+          </button>
           <div>
             {/* sign already have an account */}
-            <p className="text-sm text-gray-500">
+            <p className="text-center text-sm text-gray-500">
               Already have an account?{" "}
-              <a onClick={handleSignIn} href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <a
+                onClick={handleSignIn}
+                className="font-medium text-indigo-600 hover:text-indigo-500"
+              >
                 Sign In
               </a>
             </p>
