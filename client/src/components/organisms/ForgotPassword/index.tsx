@@ -1,7 +1,4 @@
-import { Icon } from "@mui/material";
-import React from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import Google from "@mui/icons-material/Google";
+
 import { useNavigate } from "react-router";
 
 const ForgotPassword = () => {

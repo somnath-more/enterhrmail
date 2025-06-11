@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router";
 import { FaHome, FaEnvelope, FaCog, FaSignOutAlt } from "react-icons/fa";
 export const SIDEBARDATA = [

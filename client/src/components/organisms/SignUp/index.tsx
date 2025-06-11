@@ -1,8 +1,5 @@
-import { Icon } from "@mui/material";
-import React from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
+
 import { useNavigate } from "react-router";
-import { GoogleButton } from "../../../utils";
 import IconComponent from "../../atoms/Icon";
 import GithubLogo from "../../../../src/assets/githubLogo.svg";
 import GoogleLogo from "../../../../src/assets/googleLogo.svg";

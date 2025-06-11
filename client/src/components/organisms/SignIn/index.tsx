@@ -1,6 +1,4 @@
-import { Icon } from "@mui/material";
-import React from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
+
 import GoogleLogo from "../../../../src/assets/googleLogo.svg";
 import GithubLogo from "../../../../src/assets/githubLogo.svg";
 // import Google from "@mui/icons-material/Google";

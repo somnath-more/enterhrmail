@@ -1,5 +1,4 @@
-import React from 'react';
-import { FiUploadCloud } from 'react-icons/fi';
+
 import { FaLinkedin } from 'react-icons/fa';
 
 const ViewTemplate = () => {

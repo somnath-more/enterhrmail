@@ -7,8 +7,8 @@ interface NewTemplateProps {
   selectedTemplate ?: any
 }
 const NewTemplate: React.FC<NewTemplateProps> = ({closeModal}) => {
-  const defaultPreviewTemplateData = {};
-  const [previewTemplateData, setPreviewTemplateData] = React.useState(defaultPreviewTemplateData);
+  // const defaultPreviewTemplateData = {};
+  // const [previewTemplateData, setPreviewTemplateData] = React.useState(defaultPreviewTemplateData);
   return (
 //  add 80vh height tailwind class and if max then scroll can you tell me class
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router'
 import SignIn from './components/organisms/SignIn'
 import Dashboard from './pages/Dashboard';

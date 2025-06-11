@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";

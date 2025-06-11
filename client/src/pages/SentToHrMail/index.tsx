@@ -1,5 +1,3 @@
-import React from 'react'
-import Sidebar from '../../components/organisms/Sidebar'
 import Header from '../../components/organisms/Header'
 import Footer from '../../components/organisms/Footer'
 import SentToHrMailBody from '../../components/organisms/SendToHrMail'

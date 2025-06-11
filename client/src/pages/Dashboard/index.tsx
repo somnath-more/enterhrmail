@@ -1,5 +1,3 @@
-import React from 'react'
-import Sidebar from '../../components/organisms/Sidebar';
 import Footer from '../../components/organisms/Footer';
 import DashboardBody from '../../components/organisms/DashboardBody';
 import Header from '../../components/organisms/Header';

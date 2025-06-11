@@ -14,7 +14,7 @@ const defaultPreviewTemplateData = {
   Location: 'Pune, India'
 }
 
-const PreviewTemplate: React.FC<PreviewTemplateProps> = ({ closeModal, previewTemplateData }) => {
+const PreviewTemplate: React.FC<PreviewTemplateProps> = ({  previewTemplateData }) => {
   const data = previewTemplateData || defaultPreviewTemplateData
 
   return (
@@ -22,7 +22,7 @@ const PreviewTemplate: React.FC<PreviewTemplateProps> = ({ closeModal, previewTe
       <h2 style={{ textAlign: 'center', marginBottom: 24 }}>Candidate Details</h2>
       <table style={{ width: '100%', marginBottom: 24 }}>
         <tbody>
-          {Object.entries(data).map(([key, value]) => (
+          {Object.entries(data).map(([key]) => (
             <tr key={key}>
               <td style={{ fontWeight: 'bold', padding: '8px 0', width: 140 }}>{key}:</td>
               <td style={{ padding: '8px 0' }}>
