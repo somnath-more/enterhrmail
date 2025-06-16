@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  React, { useState } from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
@@ -7,6 +7,7 @@ import ProfileLogout from "../../molecules/ProfileLogout";
 const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+   const [selectedTab, setSelectedTab] = React.useState(1);
   const [isClickedOnProfile, setIsClickedOnProfile] = useState(false);
 
   return (
@@ -24,20 +25,28 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-6">
           <nav className="flex space-x-6 text-sm font-medium text-gray-800">
             <button
-              onClick={() => navigate("/dashboard")}
-              className="hover:text-blue-600 transition"
+              onClick={() =>{
+                setSelectedTab(1);
+                  navigate("/dashboard");
+             }}
+              className={`hover:text-blue-600 transition ${selectedTab === 1 ? "text-blue-600" : ""}`}
             >
               Dashboard
             </button>
             <button
+
               onClick={() => Swal.fire("Under Development")}
-              className="hover:text-blue-600 transition"
+              className={`hover:text-blue-600 transition ${selectedTab === 2 ? "text-blue-600" : ""}`}
             >
               Tracking
             </button>
             <button
-              onClick={() => navigate("/view-sent-mails")}
-              className="hover:text-blue-600 transition"
+              onClick={() =>{
+                setSelectedTab(3);
+                navigate("/send-to-hr-mail");
+              }}
+              className={`hover:text-blue-600 transition ${selectedTab === 3 ? "text-blue-600" : ""}`}
+              
             >
               View Sent Mails
             </button>
