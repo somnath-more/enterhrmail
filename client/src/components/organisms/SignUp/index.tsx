@@ -3,11 +3,25 @@ import { useNavigate } from "react-router";
 import IconComponent from "../../atoms/Icon";
 import GithubLogo from "../../../../src/assets/githubLogo.svg";
 import GoogleLogo from "../../../../src/assets/googleLogo.svg";
+import CREATE_USER from "../../../services";
+import { useState } from "react";
+import Swal from "sweetalert2";
 const SignUp = () => {
+  const [formData, setFormData] = useState({name:"",email:"",password:""});
   const navigate = useNavigate();
-  const handleSignUp = () => {
-    navigate("/");
-  };
+const handleSignUp = async () => {
+  const { name, email, password } = formData;
+
+  try {
+    const res = await CREATE_USER({ name, email, password });
+    console.log("User created:", res);
+    Swal.fire("Success", "User created successfully", "success");
+    navigate("/"); // redirect after success
+  } catch (err) {
+    console.error("Signup failed:", err);
+  }
+};
+
   const handleSignIn = () => {
     navigate("/");
   };
@@ -23,6 +37,23 @@ const SignUp = () => {
         </div>
         <form className="mt-8 space-y-6">
           <div className="rounded-md -space-y-px">
+              <div>
+              <label
+                htmlFor="email"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Name
+                <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Enter name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              />
+            </div>
             <div>
               <label
                 htmlFor="email"
@@ -36,6 +67,8 @@ const SignUp = () => {
                 id="email"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
             <div>
@@ -50,6 +83,8 @@ const SignUp = () => {
                 id="password"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
           </div>
@@ -110,7 +145,7 @@ const SignUp = () => {
               Already have an account?{" "}
               <a
                 onClick={handleSignIn}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
               >
                 Sign In
               </a>

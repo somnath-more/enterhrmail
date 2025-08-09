@@ -1,4 +1,3 @@
-
 import GoogleLogo from "../../../../src/assets/googleLogo.svg";
 import GithubLogo from "../../../../src/assets/githubLogo.svg";
 // import Google from "@mui/icons-material/Google";
@@ -74,50 +73,43 @@ const SignIn = () => {
               </label>
             </div>
 
-            <div className="text-sm" >
-              <a
-              
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
+            <div className="text-sm">
+              <a className="font-medium text-indigo-600 hover:text-indigo-500 decoration-underline-blue">
                 Forgot your password?
               </a>
             </div>
           </div>
 
-         
-            <button
-              onClick={handleSignIn}
-              // type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border-rounded text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Sign In
-            </button>
-       
+          <button
+            onClick={handleSignIn}
+            // type="submit"
+            className="group relative w-full flex justify-center py-2 px-4 border-rounded text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Sign In
+          </button>
 
-    
-            <button
-              onClick={handleSignInWithGoogle}
-              className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
-            >
-              <IconComponent src={GoogleLogo} />
-              Sign In with Google
-            </button>
-         
-          
-            <button
-              onClick={handleSignInWithGithub}
-              className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
-            >
-              <IconComponent src={GithubLogo} />
-              Sign In with Github
-            </button>
-          
+          <button
+            onClick={handleSignInWithGoogle}
+            className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
+          >
+            <IconComponent src={GoogleLogo} />
+            Sign In with Google
+          </button>
+
+          <button
+            onClick={handleSignInWithGithub}
+            className="group relative w-full flex justify-center py-2 px-4 border border-rounded text-sm font-medium rounded-md text-black hover:text-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 gap-2"
+          >
+            <IconComponent src={GithubLogo} />
+            Sign In with Github
+          </button>
+
           <div>
             <p className="text-center text-sm text-gray-500">
               Don't have an account?{" "}
               <a
                 onClick={handleSignUp}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
               >
                 Sign up
               </a>
